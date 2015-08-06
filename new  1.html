@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Trang chủ</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.slider.css" />
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.slider.min.js"></script>
+        
+        <!--goi ham chay sliedshow-->
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+              $(".slider").slideshow({
+                width      : 960,
+                height     : 325,
+                transition : ['barLeft', 'barRight']
+              });
+         });
+    </script>
+    </head>
+    
+    <body>
+        <?php
+        // put your code here
+        ?>
+        <div id="wapper">
+            <header>
+                <div class="logo">
+                    <a href="index.php">
+                        <img src="img/logo.jpg"/>
+                    </a>
+                </div>
+                <!-- phan menu -->
+                <nav>
+                        <a href="taikhoan.php">Tài Khoản</a>
+                        <a href="lienhe.php">Liên Hệ</a>
+                        <a href="sanpham.php">Sản phẩm</a>
+                        <a href="index.php">Trang chủ</a>
+                    </ul>
+                </nav>
+            </header>
+            <!-- phan  slideshow -->
+            <div class="slider">
+                <div>
+                    <img src="img/a1.jpg" alt=""/>
+                </div>
+      
+                <div>
+                    <img src="img/a2.jpg" alt=""/>
+                </div>
+      
+                <div>
+                  <img src="img/a3.jpg" alt=""/>
+                </div>
+      
+                <div>
+                  <img src="img/a4.jpg" alt=""/>
+                </div>
+            </div>
+            <!-- phan left conten -->
+            <section>
+               
+               <?php
+                // Kết nối CSDL
+                $dsn = 'mysql:host=localhost;dbname=qlsp;charset=utf8';
+                $user = 'root';
+                $pass = '';
+
+                $db = new PDO($dsn, $user, $pass);
+                // Truy vấn toàn bộ dữ liệu
+                $query = "SELECT * FROM sanpham LIMIT 6";
+                $result = $db->query($query);
+                
+                while($row = $result->fetch()){
+                   echo '<div class="sp">';
+                        echo '<div class="ttsp">';
+                        if($row[6] != NULL) {
+                            echo '<img style="width: 45px; height: 45px;" src="img/'.$row[6].'"/>';
+                        }
+                        echo '</div>';
+                        echo '<div class="hasp">';
+                            echo '<img src="img/'.$row[3].'"/>';
+                        echo '</div>';
+                        echo '<h3>'.$row[2].'</h3>';
+                        echo '<div class="gia">';
+                           echo'<p>'.$row[5].'</p>';
+                        echo '</div>';
+                    echo '</div>';
+                }
+                ?>
+                </section>
+                
+            <!--    <div class="sp">
+                    <div class="ttsp">
+                        <img style="width: 45px; height: 45px;" src="img/new.gif"/>
+                    </div>
+                    <div class="hasp">
+                        <img src="img/hp_1.jpg"/>
+                    </div>
+                    <h3>laptop HP6560</h3>
+                    <div class="gia">
+                        <p>15.000.000vnd</p>
+                    </div>
+                </div>
+                
+                <div class="sp">
+                    <div class="hasp">
+                        <img src="img/hp_1.jpg"/>
+                    </div>
+                    <h3>laptop HP6560</h3>
+                    <div class="gia">
+                        <p>15.000.000vnd</p>
+                    </div>
+                </div>
+                
+                
+                <div class="sp">
+                    <div class="hasp">
+                        <img src="img/hp_1.jpg"/>
+                    </div>
+                    <h3>laptop HP6560</h3>
+                    <div class="gia">
+                        <p>15.000.000vnd</p>
+                    </div>
+                </div>
+                
+                
+                <div class="sp">
+                    <div class="hasp">
+                        <img src="img/hp_1.jpg"/>
+                    </div>
+                    <h3>laptop HP6560</h3>
+                    <div class="gia">
+                        <p>15.000.000vnd</p>
+                    </div>
+                </div>
+                
+                 <div class="sp">
+                    <div class="hasp">
+                        <img src="img/hp_1.jpg"/>
+                    </div>
+                    <h3>laptop HP6560</h3>
+                    <div class="gia">
+                        <p>15.000.000vnd</p>
+                    </div>
+                </div>
+                
+            </section>
+            <!-- phan right conten -->      
+            <aside></aside>
+            
+            <footer></footer>
+        </div>
+                
+    </body>
+</html>

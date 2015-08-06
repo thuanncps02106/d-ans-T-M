@@ -1,0 +1,28 @@
+/* 
+    Document   : newCascadeStyleSheet
+    Created on : Oct 28, 2014, 8:00:46 AM
+    Author     : PC01
+    Description:
+        Purpose of the stylesheet follows.
+*/
+head{
+    margin: 0;
+    padding: 0;
+}
+header{
+    width: 100%;
+    background: #009999;
+    color:#000000;
+    text-align: center;
+    font-family: Algerian, Times New Roman;
+}
+section{
+    width: 100%;
+    background: #009966;
+    text-align: center;
+}
+footer{
+    width: 100%;
+    background: #006666;
+    text-align: center;
+}
